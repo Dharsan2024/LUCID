@@ -181,6 +181,42 @@ export default function FileUpload({
               {textInput.length} chars
             </span>
           </div>
+
+          {/* Divider */}
+          <div className="flex items-center gap-3">
+            <div className="flex-1 h-px bg-border/50" />
+            <span className="text-[10px] text-text-muted font-mono uppercase tracking-wider">OR</span>
+            <div className="flex-1 h-px bg-border/50" />
+          </div>
+
+          {/* File Upload in Text Mode */}
+          <div className="border-2 border-dashed border-border rounded-xl p-4 text-center hover:border-primary/50 hover:bg-primary/5 transition-all cursor-pointer group">
+            <input
+              type="file"
+              accept="text/*,.pdf,.doc,.docx,image/*,audio/*,video/*"
+              onChange={(e) => {
+                if (e.target.files?.[0]) {
+                  const file = e.target.files[0];
+                  setSelectedFile(file);
+                  onFileSelect(file);
+                }
+              }}
+              disabled={isAnalyzing}
+              className="hidden"
+              id="file-upload-text-mode"
+            />
+            <label
+              htmlFor="file-upload-text-mode"
+              className="block cursor-pointer"
+            >
+              <Upload className="w-5 h-5 text-text-muted group-hover:text-primary transition-colors mx-auto mb-1" />
+              <p className="text-xs text-text-muted group-hover:text-primary transition-colors font-mono">
+                Or <span className="text-primary/80">click to upload</span> file
+              </p>
+              <p className="text-[10px] text-text-muted/60 mt-1">Image, Audio, Video, or Text</p>
+            </label>
+          </div>
+
           <button
             onClick={handleTextSubmit}
             disabled={textInput.trim().length === 0}
