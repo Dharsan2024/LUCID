@@ -11,7 +11,6 @@ import {
   Eye,
   Activity,
   Terminal,
-  Share2,
   RefreshCw,
 } from 'lucide-react';
 import { useState } from 'react';
@@ -223,28 +222,13 @@ export default function AnalysisResult({ report }: AnalysisResultProps) {
         </a>
       </div>
 
-      {/* Floating Action Buttons */}
-      <FloatingActionButton
-        icon={<Share2 className="w-4 h-4" />}
-        label="Share"
-        onClick={() => {
-          if (navigator.share) {
-            navigator.share({
-              title: 'LUCID Analysis Report',
-              text: `Check this forensic analysis report: ${report.file_name}`,
-            });
-          }
-        }}
-        variant="secondary"
-        delay={100}
-      />
-
+      {/* Floating Action Button */}
       <FloatingActionButton
         icon={<RefreshCw className="w-4 h-4" />}
         label="New Analysis"
         onClick={() => window.location.href = '/'}
         variant="primary"
-        delay={200}
+        delay={100}
       />
     </div>
   );
