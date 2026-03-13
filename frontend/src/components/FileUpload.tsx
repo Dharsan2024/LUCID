@@ -184,15 +184,6 @@ export default function FileUpload({
 
           {/* Action Buttons */}
           <div className="flex gap-3">
-            <button
-              onClick={handleTextSubmit}
-              disabled={textInput.trim().length === 0}
-              className="flex-1 py-3.5 rounded-xl font-mono font-semibold text-sm button-hover disabled:opacity-40 disabled:cursor-not-allowed bg-primary/20 border border-primary/30 text-primary hover:bg-primary/30 hover:shadow-[0_0_16px_rgba(0,255,136,0.15)] hover:border-primary/50"
-            >
-              <span className="text-primary/60">&gt; </span>
-              Analyze Text
-            </button>
-
             {/* Compact File Upload Button */}
             <input
               type="file"
@@ -215,6 +206,15 @@ export default function FileUpload({
               <Upload className="w-4 h-4" />
               <span className="hidden sm:inline">Upload</span>
             </label>
+
+            <button
+              onClick={handleTextSubmit}
+              disabled={textInput.trim().length === 0}
+              className="flex-1 py-3.5 rounded-xl font-mono font-semibold text-sm button-hover disabled:opacity-40 disabled:cursor-not-allowed bg-primary/20 border border-primary/30 text-primary hover:bg-primary/30 hover:shadow-[0_0_16px_rgba(0,255,136,0.15)] hover:border-primary/50"
+            >
+              <span className="text-primary/60">&gt; </span>
+              Analyze Text
+            </button>
           </div>
         </div>
       ) : (
