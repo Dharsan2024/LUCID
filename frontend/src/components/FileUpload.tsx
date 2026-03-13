@@ -182,15 +182,18 @@ export default function FileUpload({
             </span>
           </div>
 
-          {/* Divider */}
-          <div className="flex items-center gap-3">
-            <div className="flex-1 h-px bg-border/50" />
-            <span className="text-[10px] text-text-muted font-mono uppercase tracking-wider">OR</span>
-            <div className="flex-1 h-px bg-border/50" />
-          </div>
+          {/* Action Buttons */}
+          <div className="flex gap-3">
+            <button
+              onClick={handleTextSubmit}
+              disabled={textInput.trim().length === 0}
+              className="flex-1 py-3.5 rounded-xl font-mono font-semibold text-sm button-hover disabled:opacity-40 disabled:cursor-not-allowed bg-primary/20 border border-primary/30 text-primary hover:bg-primary/30 hover:shadow-[0_0_16px_rgba(0,255,136,0.15)] hover:border-primary/50"
+            >
+              <span className="text-primary/60">&gt; </span>
+              Analyze Text
+            </button>
 
-          {/* File Upload in Text Mode */}
-          <div className="border-2 border-dashed border-border rounded-xl p-4 text-center hover:border-primary/50 hover:bg-primary/5 transition-all cursor-pointer group">
+            {/* Compact File Upload Button */}
             <input
               type="file"
               accept="text/*,.pdf,.doc,.docx,image/*,audio/*,video/*"
@@ -207,24 +210,12 @@ export default function FileUpload({
             />
             <label
               htmlFor="file-upload-text-mode"
-              className="block cursor-pointer"
+              className="px-4 py-3.5 rounded-xl border border-primary/30 bg-primary/20 hover:bg-primary/30 text-primary font-mono font-semibold text-sm button-hover transition-all cursor-pointer flex items-center gap-2 no-underline hover:shadow-[0_0_16px_rgba(0,255,136,0.15)] hover:border-primary/50"
             >
-              <Upload className="w-5 h-5 text-text-muted group-hover:text-primary transition-colors mx-auto mb-1" />
-              <p className="text-xs text-text-muted group-hover:text-primary transition-colors font-mono">
-                Or <span className="text-primary/80">click to upload</span> file
-              </p>
-              <p className="text-[10px] text-text-muted/60 mt-1">Image, Audio, Video, or Text</p>
+              <Upload className="w-4 h-4" />
+              <span className="hidden sm:inline">Upload</span>
             </label>
           </div>
-
-          <button
-            onClick={handleTextSubmit}
-            disabled={textInput.trim().length === 0}
-            className="w-full py-3.5 rounded-xl font-mono font-semibold text-sm button-hover disabled:opacity-40 disabled:cursor-not-allowed bg-primary/20 border border-primary/30 text-primary hover:bg-primary/30 hover:shadow-[0_0_16px_rgba(0,255,136,0.15)] hover:border-primary/50"
-          >
-            <span className="text-primary/60">&gt; </span>
-            Analyze Text
-          </button>
         </div>
       ) : (
         /* ── File Upload Mode ── */
