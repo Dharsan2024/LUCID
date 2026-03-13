@@ -1,5 +1,6 @@
 import { Link, useLocation } from 'react-router-dom';
 import { History, Upload } from 'lucide-react';
+import Background3D from './Background3D';
 
 export default function Layout({ children }: { children: React.ReactNode }) {
   const location = useLocation();
@@ -11,6 +12,9 @@ export default function Layout({ children }: { children: React.ReactNode }) {
 
   return (
     <div className="min-h-screen flex flex-col">
+      {/* 3D Background Effects */}
+      <Background3D />
+
       {/* Header */}
       <header className="border-b border-border bg-surface/80 backdrop-blur-md sticky top-0 z-50 relative overflow-hidden">
         <div className="absolute inset-0 pointer-events-none scanline-overlay opacity-30" />
@@ -61,7 +65,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
       </header>
 
       {/* Main Content */}
-      <main className="flex-1 relative overflow-hidden">
+      <main className="flex-1 relative overflow-hidden z-10">
         {/* Animated Gradient Background */}
         <div 
           className="absolute inset-0 pointer-events-none gradient-animate opacity-40"
@@ -80,7 +84,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
       </main>
 
       {/* Footer */}
-      <footer className="border-t border-border py-6">
+      <footer className="border-t border-border py-6 z-10 relative">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <p className="text-center text-text-muted text-sm font-mono">
             LUCID — Layered Unforgable Content Integrity Detection
